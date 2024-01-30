@@ -25,7 +25,7 @@ def showMultiplication():
 
 def isSetNonEmpty():
     if len(elements) > 0:
-        print("The set is nonempty")
+        print("\nThe set is nonempty")
         return 
     print("The set is empty")
     sys.exit()
@@ -90,7 +90,7 @@ def getMultiplicativeIdentity():
         if isID == True:
             print("\nMultiplicative Identity: ", candidate)
             return candidate
-    print("There is no additive Identity")
+    print("There is no multiplicative Identity")
     sys.exit()  
 
 def isDistributive():
@@ -99,9 +99,11 @@ def isDistributive():
             for c in elements:
                 ab_c = multiply(a,add(b,c))
                 ab_ac = add(multiply(a,b), multiply(a,c))
+                print("{0!s} * ({1!s} + {2!s}) = {3!s}".format(a,b,c,ab_c)," ::: ", "({0!s} * {1!s}) + ({0!s} * {2!s}) = {3!s}".format(a,b,c,ab_ac))
                 if ab_c != ab_ac:
                     print("Multiplication does not distribute over addition")
                     sys.exit()
+                
     print("\nMultiplication does distribute over addition")
 
 print("\nAddition Operations Shown Below")
@@ -113,6 +115,7 @@ additiveIdentity = getAdditiveIdentity()
 isAdditiveInverses(additiveIdentity)
 isAssociative()
 isCommutative()
+print("\nThe set is a group under addition")
 multiplicativeIdentity = getMultiplicativeIdentity()
 isDistributive()
 print("The set under the defined operations of addition and multiplication do form a ring!")

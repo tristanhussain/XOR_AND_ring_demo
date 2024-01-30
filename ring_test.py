@@ -30,6 +30,25 @@ def isSetNonEmpty():
     print("The set is empty")
     sys.exit()
 
+def isCommutative():
+    for a in elements:
+        for b in elements:
+            if add(a,b) != add(b,a):
+                print("Addition is not commutative")
+                sys.exit()
+    print("\nAddition is commutative")
+
+def isAssociative():
+    for a in elements:
+        for b in elements:
+            for c in elements:
+                ab_c = add(a,add(b,c))
+                ab_ac = add(add(a,b), c)
+                if ab_c != ab_ac:
+                    print("Addition is not associative")
+                    sys.exit()
+    print("\nAddition is associative")
+
 def isClosed() :
     for element1 in elements:
         for element2 in elements:
@@ -89,8 +108,11 @@ print("\nAddition Operations Shown Below")
 showAddition()
 print("\nMultiplication Operations Shown Below")
 showMultiplication()
+isSetNonEmpty()
 additiveIdentity = getAdditiveIdentity()
 isAdditiveInverses(additiveIdentity)
+isAssociative()
+isCommutative()
 multiplicativeIdentity = getMultiplicativeIdentity()
 isDistributive()
 print("The set under the defined operations of addition and multiplication do form a ring!")

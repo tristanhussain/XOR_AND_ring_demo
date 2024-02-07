@@ -1,5 +1,5 @@
-from XOR import operation_table as addOperation
-from AND import operation_table as multOperation
+from XNOR import operation_table as addOperation
+from OR import operation_table as multOperation
 from elements import elements
 import sys 
 
